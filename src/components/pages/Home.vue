@@ -1,12 +1,5 @@
 <template>
-  <div class="home">
-    <nav>
-      <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/sobre-nos">Sobre Nós</router-link></li>
-        <li><router-link to="/contato">Contato</router-link></li>
-      </ul>
-    </nav>
+  <div class="home container">
     <h1>Bem-vindo à Home</h1>
     <p>Esta é a página inicial do nosso projeto.</p>
     
@@ -17,10 +10,6 @@
       <button @click="prevImage" class="nav-button left">❮</button>
       <button @click="nextImage" class="nav-button right">❯</button>
     </div>
-
-    <footer>
-      <p>© 2024 Etec JK</p>
-    </footer>
   </div>
 </template>
 
@@ -31,9 +20,9 @@ export default {
     return {
       currentIndex: 0,
       images: [
-        'https://images.pexels.com/photos/19709928/pexels-photo-19709928/free-photo-of-cidade-meio-urbano-festa-comemoracao.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        'https://images.pexels.com/photos/5499998/pexels-photo-5499998.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-        'https://images.pexels.com/photos/20267149/pexels-photo-20267149/free-photo-of-panorama-vista-paisagem-noite.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+        'https://images.unsplash.com/photo-1727961673785-689cad093cc7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://media.istockphoto.com/id/505625400/pt/foto/tucano-na-ramifica%C3%A7%C3%A3o.jpg?s=1024x1024&w=is&k=20&c=YZsbzSofAzmmdu6O4wioJ307EgTP3mDfhZVbgsUZNqA=',
+        'https://plus.unsplash.com/premium_photo-1670897797602-ce90c0e441e6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8',
       ],
     };
   },
@@ -53,7 +42,7 @@ export default {
       this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     },
     autoSlide() {
-      setInterval(this.nextImage, 3000); 
+      setInterval(this.nextImage, 3000);
     },
   },
   mounted() {
@@ -62,73 +51,56 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+/* Estilos específicos do Home.vue */
 .home {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
-  padding: 5px;
   text-align: center;
+  width: 100%; /* Ocupa a largura total */
+  padding: 20px; /* Espaçamento interno */
 }
 
 nav {
-  background-color: #333; 
-  padding: 5px; 
-  border-radius: 5px; 
+  background-color: #333;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 100%; /* Largura total da navegação */
 }
 
 nav ul {
-  list-style-type: none; 
-  padding: 0; 
+  list-style-type: none;
+  padding: 3px;
+  text-align: center; /* Centraliza a navegação */
 }
 
 nav li {
-  display: inline; 
-  margin-right: 5px; 
+  display: inline;
+  margin-right: 15px; /* ajuste conforme necessário */
 }
 
 nav a {
-  color: white; 
-  text-decoration: none; 
+  color: white;
+  text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s; 
+  transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #ffdd57; 
-}
-
-h1 {
-  font-size: 2.5em; 
-  margin: 20px 0; 
-}
-
-p {
-  font-size: 1.2em; 
-  margin-bottom: 40px; 
+  color: #ffdd57;
 }
 
 .carousel-container {
   position: relative;
-  width: 100%;
-  max-width: 800px; 
-  margin: 0 auto; 
+  width: 100%; /* Ocupa a largura total */
   overflow: hidden;
-  border-radius: 10px; 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-}
-
-.carousel {
-  display: flex;
-  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .carousel img {
-  width: 100%; 
-  min-width: 100%; 
-  height: auto; 
-  border-radius: 10px; 
+  width: 100%; /* A imagem ocupa a largura total do contêiner */
+  min-width: 100%;
+  border-radius: 10px; /* Arredonda os cantos */
 }
 
 .nav-button {
@@ -139,27 +111,12 @@ p {
   border: none;
   cursor: pointer;
   font-size: 24px;
-  border-radius: 5px; 
-  padding: 10px; 
-  transition: background 0.3s; 
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .nav-button:hover {
-  background: rgba(255, 255, 255, 1); 
-}
-
-.left {
-  left: 10px;
-}
-
-.right {
-  right: 10px;
-}
-
-footer {
-  margin-top: 20px; 
-  text-align: center; 
-  font-size: 0.9em; 
-  color: #777; 
+  background: rgba(255, 255, 255, 1);
 }
 </style>
